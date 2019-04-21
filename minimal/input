@@ -1,0 +1,16 @@
+#PRECISION MACRO_PERIOD SWITCH_NUM DEV_NUM
+GENERAL 4000 33554432 1 3
+#DEVICE ID mode_spec(BUF_NUM) clear_delay_c clear_delay_l is_rtnic
+DEVICE 0 15 400 1 0
+DEVICE 201 15 400 1 0
+DEVICE 202 15 400 1 0
+#LINK SRC DST port1 port2 sche_delay_c link.sche_delay_l link.line_delay_c  link.line_delay_l link.proc_delay_c link.proc_delay_l link.gap_c link.gap_l
+LINK 201 0 0 0 900 0 1000 0 2000 80 8320 80
+LINK 0 201 0 0 900 0 1000 0 2000 80 8320 80
+LINK 0 202 1 0 900 0 1000 0 2000 80 8320 80
+LINK 202 0 0 1 900 0 1000 0 2000 80 8320 80
+#flowID divisor length ddl src 
+#flowID dev1 dev2 
+FLOW 1 1 64 16000000 201
+FLOW_LINK 1 201 0
+FLOW_LINK 1 0 202
